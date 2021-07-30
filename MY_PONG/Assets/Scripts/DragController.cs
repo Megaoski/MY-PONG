@@ -10,6 +10,8 @@ public class DragController : MonoBehaviour
     private Vector2 screenPosition;
     private Vector3 worldPosition;
     private Draggable lastDragged;
+
+    public GameObject prefab;
     // Start is called before the first frame update
     void Awake()
     {
@@ -75,6 +77,9 @@ public class DragController : MonoBehaviour
     void Drop()
     {
         UpdateDragStatus(false);
+        //checkear si la carata se esta usando en el campo correcto, sino no hacerla desaparecer
+        CheckCard(lastDragged.gameObject);
+        Destroy(lastDragged.gameObject);
     }
 
     void UpdateDragStatus(bool IsDragging)
@@ -88,6 +93,14 @@ public class DragController : MonoBehaviour
         else
         {
             lastDragged.gameObject.layer = Layer.Default;
+        }
+    }
+
+    void CheckCard(GameObject obj)
+    {
+        if(obj.name == "Wall1")
+        {
+            Instantiate(prefab);//prefab is instantiating in wrong position right now
         }
     }
 }
