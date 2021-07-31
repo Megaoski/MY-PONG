@@ -44,7 +44,7 @@ public class Draggable : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
-      {
+    {
 
         Draggable collidedDraggable = other.GetComponent<Draggable>();
 
@@ -54,14 +54,18 @@ public class Draggable : MonoBehaviour
             Vector3 diff = new Vector3(colliderDistance2D.normal.x, colliderDistance2D.normal.y) * colliderDistance2D.distance;
             transform.position -= diff;
         }
-            if(other.CompareTag("DropValid"))
+            if(other.CompareTag("Player1Valid") && dragController.LastDragged.gameObject.CompareTag("Player1Valid"))//if card can be droped on the space:
             {
-                movementDestination = other.transform.position;
+                movementDestination = other.transform.position;//middle position of the space
+                dragController.CheckCard(dragController.LastDragged.gameObject,movementDestination.Value);//we summon the card
+                Destroy(gameObject);//lastly we destroy teh used card
             }
-            else if(other.CompareTag("DropInvalid"))
+            else if(other.CompareTag("Player2Valid") && dragController.LastDragged.gameObject.CompareTag("Player2Valid"))
             {
-                movementDestination = LastPosition;
+               movementDestination = other.transform.position;//middle position of the space
+               dragController.CheckCard(dragController.LastDragged.gameObject,movementDestination.Value);//we summon the card
+               Destroy(gameObject);//lastly we destroy teh used card
             }
-      }
+    }
 
 }

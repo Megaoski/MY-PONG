@@ -8,6 +8,8 @@ TagManager:
   - Zone
   - DropValid
   - DropInvalid
+  - Player1Valid
+  - Player2Valid
   layers:
   - Default
   - TransparentFX
