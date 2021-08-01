@@ -106,11 +106,11 @@ public class DragController : MonoBehaviour
 
     public void CheckCard(GameObject obj, Vector3 pos)
     {
-        if(obj.name == "Wall1")
+        if(obj.name == "Wall1" || obj.name == "Wall1.2")
         {
             Instantiate(WALL1, pos, transform.rotation);
         }
-        else if(obj.name == "Wall2")
+        else if(obj.name == "Wall2" || obj.name == "Wall2.2")
         {
             Instantiate(WALL2, pos, transform.rotation);
         }
