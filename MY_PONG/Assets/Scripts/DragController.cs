@@ -14,6 +14,9 @@ public class DragController : MonoBehaviour
     public GameObject WALL1;
     public GameObject WALL2;
     public GameObject LEFT1;
+    public GameObject LEFT2;
+    public GameObject RIGHT1;
+    public GameObject RIGHT2;
     //private Vector3 newPosition;
 
     // Start is called before the first frame update
@@ -114,6 +117,18 @@ public class DragController : MonoBehaviour
         else if (obj.name == "Left1")
         {
             Instantiate(LEFT1, pos, transform.rotation);
+        }
+        else if (obj.name == "Left2")
+        {
+            Instantiate(LEFT2, pos, transform.rotation);
+        }
+        else if (obj.name == "Right1")
+        {
+            Instantiate(RIGHT1, pos, transform.rotation);
+        }
+        else if (obj.name == "Right2")
+        {
+            Instantiate(RIGHT2, pos, transform.rotation);
         }
     }
 }

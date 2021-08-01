@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed;
+    public  float speed;
     public Rigidbody2D rb;
 
     public Vector3 startPosition;
@@ -125,6 +125,38 @@ public class Ball : MonoBehaviour
         }
 
 
+    }
+
+    public void LeftMovement(int num)
+    {
+        if (num == 1)
+        {
+            float x = 1;
+            float y = 1;
+            rb.velocity = new Vector2(speed * x, speed * y);
+        }
+        else if (num == 2)
+        {
+            float x = -1;
+            float y = -1;
+            rb.velocity = new Vector2(speed * x, speed * y);
+        }
+    }
+
+    public void RightMovement(int num)
+    {
+        if (num == 1)
+        {
+            float x = 1;
+            float y = -1;
+            rb.velocity = new Vector2(speed * x, speed * y);
+        }
+        else if (num == 2)
+        {
+            float x = -1;
+            float y = 1;
+            rb.velocity = new Vector2(speed * x, speed * y);
+        }
     }
 
 }
