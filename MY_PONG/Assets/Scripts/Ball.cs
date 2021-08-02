@@ -133,13 +133,19 @@ public class Ball : MonoBehaviour
         {
             float x = 1;
             float y = 1;
-            rb.velocity = new Vector2(speed * x, speed * y);
+            Vector3 newDirection = new Vector3(x, y, 0);
+            Vector3 newVelocity = newDirection.normalized * speed;
+            rb.velocity = newVelocity;
+            //rb.velocity = new Vector2(speed * x, speed * y);
         }
         else if (num == 2)
         {
             float x = -1;
             float y = -1;
-            rb.velocity = new Vector2(speed * x, speed * y);
+            Vector3 newDirection = new Vector3(x, y, 0);
+            Vector3 newVelocity = newDirection.normalized * speed;
+            rb.velocity = newVelocity;
+            //rb.velocity = new Vector2(speed * x, speed * y);
         }
     }
 
@@ -149,13 +155,32 @@ public class Ball : MonoBehaviour
         {
             float x = 1;
             float y = -1;
-            rb.velocity = new Vector2(speed * x, speed * y);
+            Vector3 newDirection = new Vector3(x, y, 0);
+            Vector3 newVelocity = newDirection.normalized * speed;
+            rb.velocity = newVelocity;
+            
+            //rb.velocity = new Vector2(speed * x, speed * y);
         }
         else if (num == 2)
         {
             float x = -1;
             float y = 1;
-            rb.velocity = new Vector2(speed * x, speed * y);
+            Vector3 newDirection = new Vector3(x, y, 0);
+            Vector3 newVelocity = newDirection.normalized * speed;
+            rb.velocity = newVelocity;
+            //rb.velocity = new Vector2(speed * x, speed * y);
+        }
+    }
+
+    public void Warping(int num)
+    {
+        if (num == 1)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 8, gameObject.transform.position.y, gameObject.transform.position.z); 
+        }
+        else if (num == 2)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x - 8, gameObject.transform.position.y, gameObject.transform.position.z);
         }
     }
 

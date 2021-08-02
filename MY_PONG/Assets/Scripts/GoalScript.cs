@@ -37,7 +37,6 @@ public class GoalScript : MonoBehaviour
             if(Zone3Touched)
             {
                 score1 += 1;
-                
             }
 
             if (Zone4Touched)
