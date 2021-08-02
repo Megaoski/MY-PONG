@@ -7,13 +7,15 @@ public class Ball : MonoBehaviour
     public  float speed;
     public Rigidbody2D rb;
 
-    public Vector3 startPosition;
-    public Vector3 point1;
-    public Vector3 point2;
-    public Vector3 point3;
-    public Vector3 point4;
-    public Vector3 point5;
-    public Vector3 point6;
+     Vector3 startPosition;
+     Vector3 point1;
+     Vector3 point2;
+     Vector3 point3;
+     Vector3 point4;
+     Vector3 point5;
+     Vector3 point6;
+
+    public bool AttackerP1;
 
     // Start is called before the first frame update
     void Start()
@@ -30,40 +32,46 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("1"))
+        if(Input.GetKey("1") && AttackerP1)
         {
             gameObject.transform.position = point1;
             Launch(1);
+            AttackerP1 = false;
         }
 
-        if(Input.GetKey("2"))
+        if(Input.GetKey("2") && AttackerP1)
         {
             gameObject.transform.position = point2;
             Launch(2);
+            AttackerP1 = false;
         }
 
-        if (Input.GetKey("3"))
+        if (Input.GetKey("3") && AttackerP1)
         {
             gameObject.transform.position = point3;
             Launch(3);
+            AttackerP1 = false;
         }
 
-        if (Input.GetKey("4"))
+        if (Input.GetKey("4") && !AttackerP1)
         {
             gameObject.transform.position = point4;
             Launch(4);
+            AttackerP1 = true;
         }
 
-        if (Input.GetKey("5"))
+        if (Input.GetKey("5") && !AttackerP1)
         {
             gameObject.transform.position = point5;
             Launch(5);
+            AttackerP1 = true;
         }
 
-        if (Input.GetKey("6"))
+        if (Input.GetKey("6") && !AttackerP1)
         {
             gameObject.transform.position = point6;
             Launch(6);
+            AttackerP1 = true;
         }
     }
 

@@ -11,17 +11,31 @@ public class Score : MonoBehaviour
     Transform score2Tr;
     Text score2Text;
 
+    Transform attackP1;
+    Image atckP1;
+    Transform attackP1TXTGO;
+    Text atckP1txt;
+
     public int Score1;
     public int Score2;
+
+    Ball ball;
     // Start is called before the first frame update
     void Start()
     {
+        ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
+
         canvasObject = GameObject.Find("Canvas");
         score1Tr = canvasObject.transform.Find("Score1");
         score1Text = score1Tr.GetComponent<Text>();
         score2Tr = canvasObject.transform.Find("Score2");
         score2Text = score2Tr.GetComponent<Text>();
+        attackP1 = canvasObject.transform.Find("P1ATTACK");
+        atckP1 = attackP1.GetComponent<Image>();
+        attackP1TXTGO = attackP1.transform.Find("P1ATTACKTXT");
+        atckP1txt = attackP1TXTGO.GetComponent<Text>();
 
+        
         //Score1 = GoalScript.score1;
         //Score2 = GoalScript.score2;
     }
@@ -29,6 +43,14 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(ball.AttackerP1 == false)
+        {
+            atckP1txt.enabled = false;
+            atckP1.enabled = false;
+            
+        }
+
         Score1 = GoalScript.score1;
         Score2 = GoalScript.score2;
 
