@@ -15,7 +15,8 @@ public class Ball : MonoBehaviour
      Vector3 point5;
      Vector3 point6;
 
-    public bool AttackerP1;
+    public bool AttackerP1 = true;
+    public bool AttackerP2 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,45 +33,51 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("1") && AttackerP1)
+        if(Input.GetKey("1") && AttackerP1 && !AttackerP2)
         {
             gameObject.transform.position = point1;
             Launch(1);
             AttackerP1 = false;
+            AttackerP2 = true;
         }
 
-        if(Input.GetKey("2") && AttackerP1)
+        if(Input.GetKey("2") && AttackerP1 && !AttackerP2)
         {
             gameObject.transform.position = point2;
             Launch(2);
             AttackerP1 = false;
+            AttackerP2 = true;
         }
 
-        if (Input.GetKey("3") && AttackerP1)
+        if (Input.GetKey("3") && AttackerP1 && !AttackerP2)
         {
             gameObject.transform.position = point3;
             Launch(3);
             AttackerP1 = false;
+            AttackerP2 = true;
         }
 
-        if (Input.GetKey("4") && !AttackerP1)
+        if (Input.GetKey("4") && !AttackerP1 && AttackerP2)
         {
             gameObject.transform.position = point4;
             Launch(4);
+            AttackerP2 = false;
             AttackerP1 = true;
         }
 
-        if (Input.GetKey("5") && !AttackerP1)
+        if (Input.GetKey("5") && !AttackerP1 && AttackerP2)
         {
             gameObject.transform.position = point5;
             Launch(5);
+            AttackerP2 = false;
             AttackerP1 = true;
         }
 
-        if (Input.GetKey("6") && !AttackerP1)
+        if (Input.GetKey("6") && !AttackerP1 && AttackerP2)
         {
             gameObject.transform.position = point6;
             Launch(6);
+            AttackerP2 = false;
             AttackerP1 = true;
         }
     }
@@ -89,6 +96,7 @@ public class Ball : MonoBehaviour
         GoalScript.Zone2Touched = false;
         GoalScript.Zone3Touched = false;
         GoalScript.Zone4Touched = false;
+
         if (point == 1)
         {
             float x = 1;

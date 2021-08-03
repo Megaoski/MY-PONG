@@ -16,6 +16,11 @@ public class Score : MonoBehaviour
     Transform attackP1TXTGO;
     Text atckP1txt;
 
+    Transform attackP2;
+    Image atckP2;
+    Transform attackP2TXTGO;
+    Text atckP2txt;
+
     public int Score1;
     public int Score2;
 
@@ -30,12 +35,18 @@ public class Score : MonoBehaviour
         score1Text = score1Tr.GetComponent<Text>();
         score2Tr = canvasObject.transform.Find("Score2");
         score2Text = score2Tr.GetComponent<Text>();
+
         attackP1 = canvasObject.transform.Find("P1ATTACK");
         atckP1 = attackP1.GetComponent<Image>();
         attackP1TXTGO = attackP1.transform.Find("P1ATTACKTXT");
         atckP1txt = attackP1TXTGO.GetComponent<Text>();
 
-        
+        attackP2 = canvasObject.transform.Find("P2ATTACK");
+        atckP2 = attackP2.GetComponent<Image>();
+        attackP2TXTGO = attackP2.transform.Find("P2ATTACKTXT");
+        atckP2txt = attackP2TXTGO.GetComponent<Text>();
+
+
         //Score1 = GoalScript.score1;
         //Score2 = GoalScript.score2;
     }
@@ -44,12 +55,27 @@ public class Score : MonoBehaviour
     void Update()
     {
 
-        if(ball.AttackerP1 == false)
+        if (ball.AttackerP1 == false)
         {
             atckP1txt.enabled = false;
             atckP1.enabled = false;
-            
+
+            atckP2txt.enabled = true;
+            atckP2.enabled = true;
+
         }
+
+        if (ball.AttackerP2 == false)
+        {
+            atckP1txt.enabled = true;
+            atckP1.enabled = true;
+
+            atckP2txt.enabled = false;
+            atckP2.enabled = false;
+        }
+
+             
+
 
         Score1 = GoalScript.score1;
         Score2 = GoalScript.score2;
