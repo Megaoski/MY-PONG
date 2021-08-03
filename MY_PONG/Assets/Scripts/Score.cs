@@ -26,6 +26,11 @@ public class Score : MonoBehaviour
 
     Ball ball;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+    }
+
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
@@ -45,7 +50,6 @@ public class Score : MonoBehaviour
         atckP2 = attackP2.GetComponent<Image>();
         attackP2TXTGO = attackP2.transform.Find("P2ATTACKTXT");
         atckP2txt = attackP2TXTGO.GetComponent<Text>();
-
 
         //Score1 = GoalScript.score1;
         //Score2 = GoalScript.score2;

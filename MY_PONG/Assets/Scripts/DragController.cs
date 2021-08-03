@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DragController : MonoBehaviour
 {
     public Draggable LastDragged => lastDragged;
@@ -19,6 +19,8 @@ public class DragController : MonoBehaviour
     public GameObject RIGHT2;
     public GameObject WARP1;
     public GameObject WARP2;
+
+    Ball ball;
     //private Vector3 newPosition;
 
     // Start is called before the first frame update
@@ -31,10 +33,35 @@ public class DragController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(isDragActive && (Input.GetMouseButtonDown(0)))
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("CONCEPT");
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if(ball.AttackerP1)
+            {
+                ball.AttackerP2 = true;
+                ball.AttackerP1 = false;
+            }
+            else if(ball.AttackerP2)
+            {
+                ball.AttackerP1 = true;
+                ball.AttackerP2 = false;
+            }
+        }
+
+        if (isDragActive && (Input.GetMouseButtonDown(0)))
         {
             Drop();
             return;

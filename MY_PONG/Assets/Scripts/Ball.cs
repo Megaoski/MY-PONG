@@ -43,52 +43,55 @@ public class Ball : MonoBehaviour
     {
         if (timer.timerEnd)
         {
-            if (Input.GetKey("1") && AttackerP1 && !AttackerP2)
+            if (gameObject.transform.position == startPosition)
             {
-                gameObject.transform.position = point1;
-                Launch(1);
-                AttackerP1 = false;
-                AttackerP2 = true;
-            }
+                if (Input.GetKey("1") && AttackerP1 && !AttackerP2)
+                {
+                    gameObject.transform.position = point1;
+                    Launch(1);
+                    AttackerP1 = false;
+                    AttackerP2 = true;
+                }
 
-            if (Input.GetKey("2") && AttackerP1 && !AttackerP2)
-            {
-                gameObject.transform.position = point2;
-                Launch(2);
-                AttackerP1 = false;
-                AttackerP2 = true;
-            }
+                if (Input.GetKey("2") && AttackerP1 && !AttackerP2)
+                {
+                    gameObject.transform.position = point2;
+                    Launch(2);
+                    AttackerP1 = false;
+                    AttackerP2 = true;
+                }
 
-            if (Input.GetKey("3") && AttackerP1 && !AttackerP2)
-            {
-                gameObject.transform.position = point3;
-                Launch(3);
-                AttackerP1 = false;
-                AttackerP2 = true;
-            }
+                if (Input.GetKey("3") && AttackerP1 && !AttackerP2)
+                {
+                    gameObject.transform.position = point3;
+                    Launch(3);
+                    AttackerP1 = false;
+                    AttackerP2 = true;
+                }
 
-            if (Input.GetKey("4") && !AttackerP1 && AttackerP2)
-            {
-                gameObject.transform.position = point4;
-                Launch(4);
-                AttackerP2 = false;
-                AttackerP1 = true;
-            }
+                if (Input.GetKey("4") && !AttackerP1 && AttackerP2)
+                {
+                    gameObject.transform.position = point4;
+                    Launch(4);
+                    AttackerP2 = false;
+                    AttackerP1 = true;
+                }
 
-            if (Input.GetKey("5") && !AttackerP1 && AttackerP2)
-            {
-                gameObject.transform.position = point5;
-                Launch(5);
-                AttackerP2 = false;
-                AttackerP1 = true;
-            }
+                if (Input.GetKey("5") && !AttackerP1 && AttackerP2)
+                {
+                    gameObject.transform.position = point5;
+                    Launch(5);
+                    AttackerP2 = false;
+                    AttackerP1 = true;
+                }
 
-            if (Input.GetKey("6") && !AttackerP1 && AttackerP2)
-            {
-                gameObject.transform.position = point6;
-                Launch(6);
-                AttackerP2 = false;
-                AttackerP1 = true;
+                if (Input.GetKey("6") && !AttackerP1 && AttackerP2)
+                {
+                    gameObject.transform.position = point6;
+                    Launch(6);
+                    AttackerP2 = false;
+                    AttackerP1 = true;
+                }
             }
         }
     }
