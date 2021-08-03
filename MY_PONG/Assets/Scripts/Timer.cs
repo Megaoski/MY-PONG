@@ -9,11 +9,12 @@ public class Timer : MonoBehaviour
     public float time;
     int seconds;
     Text text;
+    public bool timerEnd;
     // Start is called before the first frame update
     void Start()
     {
         text = gameObject.GetComponent<Text>();
-       
+        timerEnd = false;
     }
 
     // Update is called once per frame
@@ -29,8 +30,7 @@ public class Timer : MonoBehaviour
         }
         else if(time <= 0)
         {
-            //finish round
-            //start new round
+            timerEnd = true;
         }
     }
 }
